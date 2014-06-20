@@ -466,8 +466,6 @@ public class SplashActivity extends Activity implements ImBaseSocketNet {
 			// IApplication.COMPANYID = new String(pp.getProperty("COMPANYID",
 			// "")
 			// .getBytes("ISO-8859-1"), "utf-8");
-
-			//sdjnfkjsdnfjknsdjknjk
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
