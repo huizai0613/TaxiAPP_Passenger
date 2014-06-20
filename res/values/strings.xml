@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TaxiAPP</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="_but_text1">确　定</string>
+    <string name="image_contentDescription">image_contentDescription</string>
+    <string name="_slidingmenu_changge_phone">更换手机号码</string>
+    <string name="_register_start_back_string">返　回</string>
+
+</resources>
