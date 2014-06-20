@@ -467,6 +467,9 @@ public class SplashActivity extends Activity implements ImBaseSocketNet {
 			// "")
 			// .getBytes("ISO-8859-1"), "utf-8");
 			
+			
+			
+			//我爱你
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
