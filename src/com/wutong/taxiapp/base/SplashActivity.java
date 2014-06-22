@@ -56,7 +56,7 @@ import com.wutong.taxiapp_passenger.R;
 
 //软件入口，闪屏界面
 public class SplashActivity extends Activity implements ImBaseSocketNet {
-	private boolean first; // 判断是否第一次打�?���?
+	private boolean first; // 判断是否第一次打开程序
 	private View view;
 	private Context context;
 	private Animation animation;
@@ -88,17 +88,17 @@ public class SplashActivity extends Activity implements ImBaseSocketNet {
 			case XML_PARSER_ERROR:
 				// Toast.makeText(getApplicationContext(), "XML解析异常",
 				// Toast.LENGTH_LONG).show();
-				loginMainUI(); // 加载主界�?
+				loginMainUI(); // 加载主界面
 				break;
 			case IO_ERROR:
 				// Toast.makeText(getApplicationContext(), "IO异常",
 				// Toast.LENGTH_LONG).show();
-				loginMainUI(); // 加载主界�?
+				loginMainUI(); // 加载主界面
 				break;
 			case SERVER_URL_ERROR:
 				// Toast.makeText(getApplicationContext(), "服务器URL出错",
 				// Toast.LENGTH_LONG).show();
-				loginMainUI(); // 加载主界�?
+				loginMainUI(); // 加载主界面
 				break;
 			case SERVER_ERROR:
 				// Toast.makeText(getApplicationContext(), "服务器异�?,
@@ -466,10 +466,6 @@ public class SplashActivity extends Activity implements ImBaseSocketNet {
 			// IApplication.COMPANYID = new String(pp.getProperty("COMPANYID",
 			// "")
 			// .getBytes("ISO-8859-1"), "utf-8");
-			
-			
-			
-			//我爱你
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

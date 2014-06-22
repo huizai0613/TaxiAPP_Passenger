@@ -73,19 +73,19 @@ public class TaxiRequest {
 		String jsonString = callTaxi.toJsonString();
 		MyLogger.i("send", jsonString);
 
-//		try {
-//			FileOutputStream writer = new FileOutputStream(Environment
-//					.getExternalStorageDirectory().getAbsolutePath()
-//					+ "/WifiChat/12345.amr", true);
-//
-//			writer.write(Base64.decode(callTaxi.getSourceSound(),
-//					Base64.DEFAULT));
-//			writer.flush();
-//			writer.close();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try {
+			FileOutputStream writer = new FileOutputStream(Environment
+					.getExternalStorageDirectory().getAbsolutePath()
+					+ "/WifiChat/12345.amr", true);
+
+			writer.write(Base64.decode(callTaxi.getSourceSound(),
+					Base64.DEFAULT));
+			writer.flush();
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		iBackService.sendMessage(jsonString);
 

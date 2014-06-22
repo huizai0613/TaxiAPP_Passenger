@@ -22,21 +22,18 @@ public class AudioRecorder {
 
 	public byte[] getWAVDate() {
 		File fi = new File(mPath);
-		if (!fi.exists())
+		if (!fi.exists()){
 			return null;
-		byte[] data = new byte[1024];
-		byte[] soure = null;
+		}
+		byte[] soure=null;
 		try {
 			InputStream is = new FileInputStream(fi);
-			ByteArrayOutputStream bos = new ByteArrayOutputStream();
-			int len = 0;
+			int available = is.available();
+			
+			 soure = new byte[available];
+			
+			 is.read(soure);
 
-			while ((len = is.read(data)) != -1) {
-				bos.write(data);
-			}
-			bos.flush();
-			soure = bos.toByteArray();
-			bos.close();
 			is.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();

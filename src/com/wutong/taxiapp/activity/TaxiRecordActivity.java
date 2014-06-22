@@ -392,9 +392,9 @@ public class TaxiRecordActivity extends BaseActivity implements ImBaseSocketNet 
 
 				ByteArrayInputStream bis = new ByteArrayInputStream(date);
 
-				byte[] buff = new byte[1024 * 4];
+				byte[] buff = new byte[1024 * 8];
 
-				int i = (int) Math.ceil(date.length / ((double) 1024.00 * 4));
+				int i = (int) Math.ceil(date.length / ((double) 1024.00 * 8));
 				for (int j = 0; j < i; j++) {
 
 					RequestCallTaxi callTaxi = new RequestCallTaxi();
@@ -418,10 +418,12 @@ public class TaxiRecordActivity extends BaseActivity implements ImBaseSocketNet 
 					callTaxi.setSex(sex);
 					callTaxi.setPhone(IApplication.getInstance().sharedConfig
 							.getMobile());
-					if (j == i - 1) {
-						callTaxi.setFlag("END");
+					if (i == 1) {
+						callTaxi.setFlag("ALL");
 					} else if (j == 0) {
 						callTaxi.setFlag("START");
+					} else if (j == i - 1) {
+						callTaxi.setFlag("END");
 					} else {
 						callTaxi.setFlag("" + j);
 					}
