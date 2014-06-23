@@ -44,7 +44,7 @@ import com.wutong.taxiapp_passenger.R;
 public class TaxiRecordActivity extends BaseActivity implements ImBaseSocketNet {
 
 	private static final int MIN_RECORD_TIME = 1; // 最短录制时间，单位秒，0为无时间限制
-	private static final int MAX_RECORD_TIME = 10; // 最长录制时间，单位秒，0为无时间限制
+	private static final int MAX_RECORD_TIME = 7; // 最长录制时间，单位秒，0为无时间限制
 
 	private static final int RECORD_OFF = 0; // 不在录音
 	private static final int RECORD_ON = 1; // 正在录音
@@ -444,14 +444,14 @@ public class TaxiRecordActivity extends BaseActivity implements ImBaseSocketNet 
 						e.printStackTrace();
 					}
 					try {
-						Thread.sleep(200);
+						Thread.sleep(100);
 					} catch (InterruptedException e1) {
 						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 				}
 
-				handler.sendEmptyMessage(SENDSOUNDEND);
+//				handler.sendEmptyMessage(SENDSOUNDEND);
 
 			}
 		}.start();
@@ -468,7 +468,10 @@ public class TaxiRecordActivity extends BaseActivity implements ImBaseSocketNet 
 			switch (i) {
 			case SENDSOUNDEND:
 				// 发送数据,跳转到等待界面
+//				lib.requestCallTaxi(callTaxi);
 
+				
+				
 				ActivityUtils.startActivityAndFinish(mContext,
 						WaitOrderActivity.class);
 

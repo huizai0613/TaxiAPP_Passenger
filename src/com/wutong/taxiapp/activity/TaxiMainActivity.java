@@ -64,6 +64,7 @@ public class TaxiMainActivity extends SlidingFragmentActivity implements
 	private LocationClient mLocClient; // 定位客户端
 	private BDLocation startLocation;
 	private ResponseTaxiNum parserTaxiNum;
+	private boolean isPublicInfo;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -276,27 +277,22 @@ public class TaxiMainActivity extends SlidingFragmentActivity implements
 				callTaxi.setPrice(price);
 				callTaxi.setSex(sexy);
 				callTaxi.setSourceAddress(mStartLocation.getAddress_address());
-				callTaxi.setSourceLat(mStartLocation.getLatitude()+"");
-				callTaxi.setSourceLong(mStartLocation.getLongitude()+"");
+				callTaxi.setSourceLat(mStartLocation.getLatitude() + "");
+				callTaxi.setSourceLong(mStartLocation.getLongitude() + "");
 				callTaxi.setType("0");
-				
+
 				try {
 					lib.requestTextTaxi(callTaxi);
-					//发布信息成功之后，跳转到等待接单界面
-					
-					ActivityUtils.startActivity(mContext, WaitOrderActivity.class);
-					
+
+					isPublicInfo = true;
+
 				} catch (RemoteException e) {
 					// TODO Auto-generated catch block
-					
+
 					ToastUtils.toast(mContext, ErrorInfo.ERRORNET);
-					
+
 					e.printStackTrace();
 				}
-				
-				
-				
-				
 
 			}
 
@@ -331,9 +327,7 @@ public class TaxiMainActivity extends SlidingFragmentActivity implements
 			MyLocation mMyLocation = (MyLocation) serializableExtra;
 
 			if (arg1 == MyLocation.STARTADDRESS) {// 返回起点
-				
-				
-				
+
 				mStartLocation = mMyLocation;
 
 				taxi_main_go_tv.setText(mMyLocation.getAddress_address());
@@ -353,7 +347,15 @@ public class TaxiMainActivity extends SlidingFragmentActivity implements
 		try {
 			parserTaxiNum = lib.parserTaxiNum(jsonObject);
 
-			taxi_main_car_num_tv2.setText(parserTaxiNum.getTotalTaxi());
+			if (isPublicInfo) {
+				// 发布信息成功之后，跳转到等待接单界面
+				ActivityUtils.startActivityForSerializable(mContext,
+						WaitOrderActivity.class, parserTaxiNum,
+						"RESPONSETAXINUM", mContext);
+			} else {
+
+				taxi_main_car_num_tv2.setText(parserTaxiNum.getTotalTaxi());
+			}
 
 		} catch (NetRequestException e) {
 			// TODO Auto-generated catch block
@@ -380,9 +382,12 @@ public class TaxiMainActivity extends SlidingFragmentActivity implements
 	@Override
 	protected void onResume() {
 		super.onResume();
-//		if (mLocClient != null) {
-//			mLocClient.start();
-//		}
+
+		isPublicInfo = false;
+
+		// if (mLocClient != null) {
+		// mLocClient.start();
+		// }
 		lib.registerReciver();
 	}
 

@@ -17,7 +17,7 @@ public class ResponseTaxiNum extends BaseDomain<ResponseTaxiNum> {
 
 	private String totalTaxi;
 	private ArrayList<TaxiLocation> taxis;
-	
+
 	public ArrayList<TaxiLocation> getTaxis() {
 		return taxis;
 	}
@@ -42,7 +42,7 @@ public class ResponseTaxiNum extends BaseDomain<ResponseTaxiNum> {
 	@Override
 	public ResponseTaxiNum parseJSON(JSONObject jsonObj)
 			throws NetRequestException {
-		boolean checkJson = CheckJson(jsonObj, "2");
+		boolean checkJson = CheckJson(jsonObj, "2", new String[] { "3" });
 
 		if (checkJson) {
 			totalTaxi = jsonObj.optString("totalTaxi");

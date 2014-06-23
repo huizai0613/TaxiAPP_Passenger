@@ -87,7 +87,6 @@
                 android:drawableLeft="@drawable/car_icon"
                 android:gravity="center_vertical"
                 android:paddingLeft="5dip"
-                android:text="以发送给10辆车"
                 android:textColor="#ffffff" />
 
             <ProgressBar

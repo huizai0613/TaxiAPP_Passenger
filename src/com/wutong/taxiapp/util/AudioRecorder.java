@@ -82,8 +82,8 @@ public class AudioRecorder {
 			throw new IOException("Path to file could not be created");
 		}
 		mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-		mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AAC_ADTS);
-		mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+		mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.AMR_NB);
+		mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB );
 		// mMediaRecorder.setAudioChannels(AudioFormat.CHANNEL_CONFIGURATION_MONO);
 		mMediaRecorder.setAudioSamplingRate(SAMPLE_RATE_IN_HZ);
 		mMediaRecorder.setOutputFile(mPath);

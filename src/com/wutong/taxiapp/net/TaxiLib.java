@@ -121,12 +121,27 @@ public class TaxiLib {
 
 	public void requestCallTaxi(RequestCallTaxi callTaxi) throws RemoteException {
 
+//		if(!mLoadingDialog.isShowing()){
+//			mLoadingDialog.show();
+//		}
+		
 		mRequest.requestCallTaxi(callTaxi);
+	}
+	
+	public void parserCallTaxi(){
+		
+		if(mLoadingDialog.isShowing()){
+			mLoadingDialog.dismiss();
+		}
 	}
 
 	public void requestTextTaxi(RequestCallTaxi callTaxi) throws RemoteException {
 		// TODO Auto-generated method stub
+		
+		requestCom();
 		mRequest.requestTextTaxi(callTaxi);
+		parserCom();
+		
 	}
 
 	//解析等待接待的数据
